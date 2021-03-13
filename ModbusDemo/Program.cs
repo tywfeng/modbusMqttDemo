@@ -13,6 +13,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.IO;
 
+// NuGet MQTTNet
+// Install-Package MQTTnet -Version 3.0.15
 namespace ModbusDemo
 {
     public class Config
