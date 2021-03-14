@@ -89,10 +89,10 @@ namespace ModbusDemo
 
             while (Program.gThreadRunning)
             {
-
-                if (!modbusClient.ConnectServer().IsSuccess)
+                var connect = modbusClient.ConnectServer();
+                if (!connect.IsSuccess)
                 {
-                    Console.WriteLine("连接失败 500ms后重连");
+                    Console.WriteLine($"连接失败[{connect.Message}] 500ms后重连");
                 }
                 else
                 {
@@ -188,8 +188,9 @@ namespace ModbusDemo
                         pubData[tag.name] = "";
                 }
                 String payload = JsonSerializer.Serialize(pubData);
-
+#if DEBUG
                 Console.WriteLine(payload);
+#endif
                 var msg = new MqttApplicationMessageBuilder()
                     .WithTopic(config.mqtt.pubTopic)
                     .WithPayload(payload)

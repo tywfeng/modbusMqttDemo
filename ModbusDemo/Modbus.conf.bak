@@ -1,0 +1,68 @@
+{
+    "mqtt": {
+        "brokerAddress": "127.0.0.1",
+        "port": 1883,
+        "clientId": "modbus",
+        "userName": "modbus",
+        "password": "123456",
+        "cleanSession": true,
+        "pubTopic": "modbusTopic"
+    },
+    "modbus": {
+        "ip": "127.0.0.1",
+        "port": 502,
+        "slaveId": 1,
+        "addressStartWithZero": true,
+        "tags": [
+            {
+                "addressType": 3,
+                "baseAddress": 0,
+                "bit": 0,
+                "name": "环境温度",
+                "dataType": 4
+            },
+            {
+                "addressType": 3,
+                "baseAddress": 1,
+                "bit": 0,
+                "name": "环境湿度",
+                "dataType": 4
+            },
+            {
+                "addressType": 3,
+                "baseAddress": 2,
+                "bit": 0,
+                "name": "电机转速",
+                "dataType": 7
+            },
+            {
+                "addressType": 3,
+                "baseAddress": 4,
+                "bit": 0,
+                "name": "电流",
+                "dataType": 10
+            },
+            {
+                "addressType": 3,
+                "baseAddress": 6,
+                "bit": 0,
+                "name": "电压",
+                "dataType": 11
+            },
+            {
+                "addressType": 3,
+                "baseAddress": 60,
+                "bit": 4,
+                "name": "电机开关",
+                "dataType": 1
+            },
+            {
+                "addressType": 2,
+                "baseAddress": 0,
+                "bit": 0,
+                "name": "电磁开关",
+                "dataType": 1
+            }
+        ]
+    }
+}

@@ -52,6 +52,10 @@ namespace Modbus
                                 for (int i = 0; i < len; ++i) raw[i] = (byte)(result.Content[i]?Switch.On:Switch.Off);
                                 data.setRawData(raw);
                             }
+                            else
+                            {
+                                Console.WriteLine($"{name}:{baseAddress},{len}:读取失败[{result.Message}]");
+                            }
                         }
                         break;
                     case (int)AddressType.holdingRegisters: // 保持寄存器 04命令
@@ -69,6 +73,10 @@ namespace Modbus
                             if (result.IsSuccess)
                             {
                                 data.setRawData(result.Content);
+                            }
+                            else
+                            {
+                                Console.WriteLine($"{name}:{readP1},{len}:读取失败[{result.Message}]");
                             }
                         }
                         break;                        
